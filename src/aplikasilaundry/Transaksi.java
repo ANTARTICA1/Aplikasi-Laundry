@@ -51,7 +51,7 @@ public static DefaultTableModel getData() {
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, idCustomer);
         ps.setDouble(2, berat);
-        ps.setInt(3, hargaPerKg);  // baru
+        ps.setInt(3, hargaPerKg); 
         ps.setInt(4, total);
         ps.setString(5, status);
         ps.executeUpdate();
@@ -67,11 +67,11 @@ public static DefaultTableModel getData() {
         Connection conn = Koneksi.getConnection();
         String sql = "UPDATE transaksi SET berat=?, harga_per_kg=?, total_harga=?, status=? WHERE id_transaksi=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setDouble(1, berat);       // berat
-        ps.setInt(2, hargaPerKg);     // hargaPerKg
-        ps.setInt(3, total);          // total_harga
-        ps.setString(4, status);      // status
-        ps.setInt(5, idTransaksi);    // WHERE id_transaksi
+        ps.setDouble(1, berat);       
+        ps.setInt(2, hargaPerKg);     
+        ps.setInt(3, total);          
+        ps.setString(4, status);
+        ps.setInt(5, idTransaksi);
         ps.executeUpdate();
     } catch (SQLException e) {
         e.printStackTrace();
@@ -102,7 +102,7 @@ public static DefaultTableModel getData() {
         pst.setString(1, namaCustomer);
         ResultSet rs = pst.executeQuery();
         if (rs.next()) return rs.getInt("id_customer");
-        return -1; // tidak ditemukan
+        return -1; 
     }
 
     public static int getIdCustomerByTransaksi(int idTransaksi) {
