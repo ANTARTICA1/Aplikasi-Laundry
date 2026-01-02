@@ -55,7 +55,6 @@ public class Pembayaran {
             ps.setString(3, status);
             ps.executeUpdate();
 
-            // Jika lunas, update status transaksi
             if(status.equalsIgnoreCase("Lunas")) {
                 String updateTransaksi = "UPDATE transaksi SET status='Selesai' WHERE id_transaksi=?";
                 PreparedStatement ps2 = conn.prepareStatement(updateTransaksi);
