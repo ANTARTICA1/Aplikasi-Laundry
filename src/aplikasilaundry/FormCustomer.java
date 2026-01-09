@@ -27,8 +27,9 @@ public class FormCustomer extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         txtnnotelp = new javax.swing.JTextField();
         txtnama = new javax.swing.JTextField();
-        moveTransaksi = new javax.swing.JButton();
-        moveKeluar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         btnSimpan = new javax.swing.JButton();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
@@ -66,24 +67,17 @@ public class FormCustomer extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(txtnnotelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 160, 40));
+        getContentPane().add(txtnnotelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 160, 30));
         getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, 40));
 
-        moveTransaksi.setText("Transaksi");
-        moveTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveTransaksiActionPerformed(evt);
-            }
-        });
-        getContentPane().add(moveTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 690, 160, 50));
+        jButton2.setText("Transaksi");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 690, 160, 50));
 
-        moveKeluar.setText("Keluar");
-        moveKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveKeluarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(moveKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 690, 160, 50));
+        jButton1.setText("Data Pelanggan");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 690, 160, 50));
+
+        jButton3.setText("Keluar");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 690, 160, 50));
 
         btnSimpan.setBackground(new java.awt.Color(51, 204, 0));
         btnSimpan.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -180,22 +174,9 @@ public class FormCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnnotelpAncestorAdded
 
-    private void moveKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveKeluarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moveKeluarActionPerformed
-
-    private void moveTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveTransaksiActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_moveTransaksiActionPerformed
-
     /**
      * @param args the command line arguments
-     */public static void main(String[] args) {
-    java.awt.EventQueue.invokeLater(() -> {
-        new FormCustomer().setVisible(true);
-    });
-}
+     */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -203,14 +184,15 @@ public class FormCustomer extends javax.swing.JFrame {
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnUbah;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton moveKeluar;
-    private javax.swing.JButton moveTransaksi;
     private javax.swing.JTextField txtnama;
     private javax.swing.JTextField txtnnotelp;
     // End of variables declaration//GEN-END:variables

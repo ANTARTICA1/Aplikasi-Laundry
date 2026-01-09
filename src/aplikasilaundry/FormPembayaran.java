@@ -23,8 +23,6 @@ public class FormPembayaran extends javax.swing.JFrame {
 
     public FormPembayaran() {
         initComponents();
-        this.setResizable(false);
-        setLocationRelativeTo(null);
     Color biruIsi = new Color(0, 51, 102);      
     Color biruHeader = new Color(0, 34, 68);  
     tabelPembayaran.setBackground(biruIsi);
@@ -47,7 +45,7 @@ public class FormPembayaran extends javax.swing.JFrame {
         
         loadComboTransaksi();
         loadStatusBayar();
-        txtKembalian.setEditable(false);
+        txtTotalHarga.setEditable(false);
     }
     
     private void loadStatusBayar() {
@@ -68,11 +66,12 @@ public class FormPembayaran extends javax.swing.JFrame {
 
         Connection conn = Koneksi.getConnection();
 
-        String sql =
-    "SELECT t.total_harga " +
-    "FROM pembayaran p " +
-    "JOIN transaksi t ON p.id_transaksi = t.id_transaksi " +
-    "WHERE p.id_pembayaran = ?";
+        String sql = """
+            SELECT t.total_harga
+            FROM pembayaran p
+            JOIN transaksi t ON p.id_transaksi = t.id_transaksi
+            WHERE p.id_pembayaran = ?
+        """;
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, idPembayaran);
@@ -91,18 +90,6 @@ public class FormPembayaran extends javax.swing.JFrame {
     } catch (Exception e) {
         e.printStackTrace();
     }
-}
-    
-    private void hitungKembalian() {
-    if (txtJumlahBayar.getText().isEmpty() || txtTotalHarga.getText().isEmpty()) {
-        return;
-    }
-
-    int bayar = Integer.parseInt(txtJumlahBayar.getText());
-    int total = Integer.parseInt(txtTotalHarga.getText());
-
-    int kembalian = bayar - total;
-    txtKembalian.setText(String.valueOf(kembalian));
 }
     private void tampilkanStruk(int idPembayaran) {
      try {
@@ -198,15 +185,14 @@ if (rs.next()) {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtKembalian = new javax.swing.JTextField();
         comboTransaksi = new javax.swing.JComboBox<>();
-        moveTransaksi = new javax.swing.JButton();
-        moveKeluar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         txtJumlahBayar = new javax.swing.JTextField();
         txtTotalHarga = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cmbStatusBayar = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
@@ -237,21 +223,8 @@ if (rs.next()) {
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Kembalian");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 182, -1));
-
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Total Harga");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 182, -1));
-
-        txtKembalian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKembalianActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 130, 40));
+        jLabel4.setText("Total Harga");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 182, -1));
 
         comboTransaksi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboTransaksi.addActionListener(new java.awt.event.ActionListener() {
@@ -261,27 +234,11 @@ if (rs.next()) {
         });
         jPanel1.add(comboTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 130, 41));
 
-        moveTransaksi.setBackground(new java.awt.Color(52, 73, 94));
-        moveTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        moveTransaksi.setForeground(new java.awt.Color(255, 255, 255));
-        moveTransaksi.setText("Transaksi");
-        moveTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveTransaksiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(moveTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 160, 50));
+        jButton2.setText("Transaksi");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 160, 50));
 
-        moveKeluar.setBackground(new java.awt.Color(51, 0, 0));
-        moveKeluar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        moveKeluar.setForeground(new java.awt.Color(255, 255, 255));
-        moveKeluar.setText("Keluar");
-        moveKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveKeluarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(moveKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 70, 160, 50));
+        jButton3.setText("Keluar");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 70, 160, 50));
 
         txtJumlahBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +258,7 @@ if (rs.next()) {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Status Bayar");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 203, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 203, -1));
 
         cmbStatusBayar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbStatusBayar.addActionListener(new java.awt.event.ActionListener() {
@@ -309,7 +266,10 @@ if (rs.next()) {
                 cmbStatusBayarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmbStatusBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 130, 41));
+        jPanel1.add(cmbStatusBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 130, 41));
+
+        jButton1.setText("Data Pelanggan");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 160, 50));
 
         btnTambah.setBackground(new java.awt.Color(51, 153, 255));
         btnTambah.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -320,7 +280,7 @@ if (rs.next()) {
                 btnTambahActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 620, 140, 50));
+        jPanel1.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 140, 50));
 
         btnUbah.setBackground(new java.awt.Color(255, 153, 0));
         btnUbah.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -336,7 +296,7 @@ if (rs.next()) {
                 btnUbahActionPerformed(evt);
             }
         });
-        jPanel1.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 620, 140, 51));
+        jPanel1.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, 140, 51));
 
         btnHapus.setBackground(new java.awt.Color(255, 51, 51));
         btnHapus.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -352,7 +312,7 @@ if (rs.next()) {
                 btnHapusActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 680, 140, 51));
+        jPanel1.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, 140, 51));
 
         tabelPembayaran.setBackground(new java.awt.Color(153, 153, 153));
         tabelPembayaran.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -436,7 +396,6 @@ if (rs.next()) {
     );
 
     isiTotalHarga();
-    hitungKembalian();
     }//GEN-LAST:event_tabelPembayaranMouseClicked
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
@@ -534,6 +493,10 @@ if (rs.next()) {
     }
     }//GEN-LAST:event_btnCetakMouseClicked
 
+    private void txtTotalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalHargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalHargaActionPerformed
+
     private void txtJumlahBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahBayarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtJumlahBayarActionPerformed
@@ -549,29 +512,6 @@ if (rs.next()) {
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnHapusActionPerformed
-
-    private void moveTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveTransaksiActionPerformed
-        // TODO add your handling code here:
-        MenuUtama mu = new MenuUtama();
-        mu.setVisible(true);
-        this.dispose(); // tutup form sekarang
-        
-    }//GEN-LAST:event_moveTransaksiActionPerformed
-
-    private void moveKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveKeluarActionPerformed
-        // TODO add your handling code here:
-        Login lg = new Login();
-        lg.setVisible(true);
-        this.dispose(); // tutup form sekarang
-    }//GEN-LAST:event_moveKeluarActionPerformed
-
-    private void txtTotalHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalHargaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTotalHargaActionPerformed
-
-    private void txtKembalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKembalianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtKembalianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -605,20 +545,19 @@ if (rs.next()) {
     private javax.swing.JButton btnUbah;
     private javax.swing.JComboBox<String> cmbStatusBayar;
     private javax.swing.JComboBox<String> comboTransaksi;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton moveKeluar;
-    private javax.swing.JButton moveTransaksi;
     private javax.swing.JTable tabelPembayaran;
     private javax.swing.JTextField txtJumlahBayar;
-    private javax.swing.JTextField txtKembalian;
     private javax.swing.JTextArea txtStruk;
     private javax.swing.JTextField txtTotalHarga;
     // End of variables declaration//GEN-END:variables

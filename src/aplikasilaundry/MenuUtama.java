@@ -26,8 +26,6 @@ public class MenuUtama extends javax.swing.JFrame {
      */
     public MenuUtama() {
     initComponents();
-    this.setResizable(false);
-    setLocationRelativeTo(null);
         Color biruIsi = new Color(0, 51, 102);      
     Color biruHeader = new Color(0, 34, 68);  
     tabelTransaksi.setBackground(biruIsi);
@@ -88,8 +86,9 @@ public class MenuUtama extends javax.swing.JFrame {
         tabelTransaksi = new javax.swing.JTable();
         cmbStatus = new javax.swing.JComboBox<>();
         bginput = new javax.swing.JLabel();
-        MoveLogin = new javax.swing.JButton();
-        MovePembayaran = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -251,30 +250,22 @@ public class MenuUtama extends javax.swing.JFrame {
         bginput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplikasilaundry/input.png"))); // NOI18N
         jPanel1.add(bginput, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 540, 660));
 
-        MoveLogin.setBackground(new java.awt.Color(51, 0, 0));
-        MoveLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        MoveLogin.setForeground(new java.awt.Color(255, 255, 255));
-        MoveLogin.setText("Keluar");
-        MoveLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MoveLoginActionPerformed(evt);
-            }
-        });
-        jPanel1.add(MoveLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 660, 160, 50));
+        jButton1.setText("Keluar");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 660, 160, 50));
 
-        MovePembayaran.setBackground(new java.awt.Color(0, 102, 0));
-        MovePembayaran.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        MovePembayaran.setForeground(new java.awt.Color(255, 255, 255));
-        MovePembayaran.setText("Pembayaran");
-        MovePembayaran.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Pembayaran");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovePembayaranActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(MovePembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 660, 160, 50));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 660, 160, 50));
+
+        jButton3.setText("Data Pelanggan");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 660, 160, 50));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplikasilaundry/bg.png"))); // NOI18N
-        jPanel1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 860));
+        jPanel1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1520, 830));
 
         setJMenuBar(jMenuBar1);
 
@@ -420,19 +411,9 @@ cmbStatus.setSelectedItem(
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBeratActionPerformed
 
-    private void MovePembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovePembayaranActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        FormPembayaran fp = new FormPembayaran();
-        fp.setVisible(true);
-        this.dispose(); // tutup form sekarang
-    }//GEN-LAST:event_MovePembayaranActionPerformed
-
-    private void MoveLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoveLoginActionPerformed
-        // TODO add your handling code here:
-        Login lg = new Login();
-        lg.setVisible(true);
-        this.dispose(); // tutup form sekarang
-    }//GEN-LAST:event_MoveLoginActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,8 +425,6 @@ cmbStatus.setSelectedItem(
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton MoveLogin;
-    private javax.swing.JButton MovePembayaran;
     private javax.swing.JLabel bg;
     private javax.swing.JLabel bginput;
     private javax.swing.JButton btnHapus;
@@ -453,6 +432,9 @@ cmbStatus.setSelectedItem(
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnUbah;
     private javax.swing.JComboBox<String> cmbStatus;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
