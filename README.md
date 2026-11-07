@@ -6,6 +6,11 @@ A desktop-based enterprise management system designed for laundry and dry-cleani
 
 Aplikasi Laundry centralizes daily laundry shop workflows into a single desktop interface. The system automates order tracking, calculates total pricing based on package weight and service type, manages customer records, and records completed financial transactions to reduce human calculation errors and operational overhead.
 
+
+## Interface Preview
+
+[![Interface Preview Status](https://img.shields.io/badge/Interface_Preview-Documentation_in_Progress-0052cc?style=for-the-badge&logo=java&logoColor=white)](https://github.com/ANTARTICA1/Aplikasi-Laundry)
+
 ## Core Features
 
 - Operator Authentication: Secure login portal protecting administrative and cashier access.
