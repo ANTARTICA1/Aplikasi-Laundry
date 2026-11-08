@@ -1,10 +1,10 @@
-# Aplikasi Laundry - Java Swing Desktop Management System
+# Laundry Management System - Java Swing Desktop Application
 
 A desktop-based enterprise management system designed for laundry and dry-cleaning business operations. Developed using Java Swing and MySQL with JDBC connectivity, the software streamlines customer registration, order ticketing, service pricing calculations, and transaction settlement.
 
 ## Overview
 
-Aplikasi Laundry centralizes daily laundry shop workflows into a single desktop interface. The system automates order tracking, calculates total pricing based on package weight and service type, manages customer records, and records completed financial transactions to reduce human calculation errors and operational overhead.
+This system centralizes daily laundry shop workflows into a single desktop interface. The system automates order tracking, calculates total pricing based on package weight and service type, manages customer records, and records completed financial transactions to reduce human calculation errors and operational overhead.
 
 
 ## Interface Preview
@@ -15,7 +15,7 @@ Aplikasi Laundry centralizes daily laundry shop workflows into a single desktop 
 
 - Operator Authentication: Secure login portal protecting administrative and cashier access.
 - Customer Data Management (FormCustomer): Complete CRUD capabilities (Create, Read, Update, Delete) for recording customer names, phone numbers, and addresses.
-- Order & Service Ticketing (Transaksi): Support for multiple laundry service packages (cuci basah, cuci kering, setrika, express) with automated unit/weight multiplication.
+- Order & Service Ticketing (Transaksi): Support for multiple laundry service packages (wash, dry clean, iron, express) with automated unit/weight multiplication.
 - Payment & Invoice Processing (FormPembayaran): Automated balance calculation, cash received validation, change computation, and invoice logging.
 - Main Dashboard & Records Grid (MenuUtama): Interactive JTable data grid styled with custom blue themes for reviewing order logs, payment status, and order queues.
 - Relational Database Persistence: Centralized storage managed via JDBC (Java Database Connectivity) with MySQL Connector/J.
